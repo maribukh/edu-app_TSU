@@ -1,14 +1,11 @@
 import Header from "./components/Header";
-import AppRoutes from "./routes/AppRoutes";
+import Hero from "./components/Hero";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0A0A0F] text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Header />
-      <div className="pt-16">
-        {" "}
-        <AppRoutes />
-      </div>
+      <Hero />
     </div>
   );
 }

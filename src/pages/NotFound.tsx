@@ -1,1 +1,4 @@
-export default function NotFound() {}
+export default function NotFound() {
+        return <></>
+
+}
