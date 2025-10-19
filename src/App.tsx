@@ -1,14 +1,23 @@
 import Header from "./components/Header";
-import AppRoutes from "./routes/AppRoutes";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Education from "./components/Education";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0A0A0F] text-white">
+    <div className="min-h-screen text-white">
       <Header />
-      <div className="pt-16">
-        {" "}
-        <AppRoutes />
-      </div>
+      <main className="pt-20">
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Education />
+      </main>
+      <Footer />
     </div>
   );
 }

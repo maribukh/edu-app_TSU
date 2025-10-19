@@ -1,43 +1,37 @@
-import { NavLink, Link } from "react-router-dom";
+import { useCallback } from "react";
 
 export default function Header() {
+  const scrollTo = useCallback((id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
   return (
-    <header className="w-full bg-white/80 backdrop-blur-md shadow-md border-b border-[#E0E6EE]">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-6 px-10">
-        <Link
-          to="/"
-          className="text-xl font-bold tracking-widest text-[#00F0FF]"
+    <header className="fixed top-0 inset-x-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/10">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+        <button
+          onClick={() => scrollTo("hero")}
+          className="text-xl font-bold tracking-widest text-cyan-300 hover:text-white transition"
         >
-          MB ACADEMY
-        </Link>
+          MB
+        </button>
 
-        <nav className="flex gap-6">
-          <NavLink
-            to="/"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/courses"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Courses
-          </NavLink>
-          <NavLink
-            to="/dashboard"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Dashboard
-          </NavLink>
+        <nav className="flex gap-6 text-sm">
+          {[
+            { id: "about", label: "About" },
+            { id: "experience", label: "Experience" },
+            { id: "skills", label: "Skills" },
+            { id: "education", label: "Education" },
+          ].map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              className="text-white/80 hover:text-white transition relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-300 hover:after:w-full after:transition-all"
+            >
+              {link.label}
+            </button>
+          ))}
         </nav>
-
-        <Link
-          to="/login"
-          className="px-6 py-2 border border-[#00F0FF] rounded-full text-[#00F0FF] text-sm hover:bg-[#00F0FF] hover:text-black transition shadow-neon"
-        >
-          Login
-        </Link>
       </div>
     </header>
   );
