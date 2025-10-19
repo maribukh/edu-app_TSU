@@ -1,29 +1,28 @@
-import { Link } from "react-router-dom";
+import type React from "react";
 
 export default function Hero() {
+  const scrollToCourses = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative w-full min-h-[75vh] flex items-center justify-center text-center px-10 bg-heroGlow">
-      <div className="max-w-3xl">
-        <h1 className="text-5xl font-bold tracking-widest text-gray-900">
-          LEARN. BUILD. EVOLVE.
+    <section className="relative w-full min-h-[70vh] flex items-center justify-center text-center px-6">
+      <div className="max-w-4xl">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-widest">
+          Станьте Front-End Разработчиком Будущего
         </h1>
-        <p className="mt-6 text-gray-600 tracking-wide">
-          Front-End education with clean UI principles, React, and design
-          thinking — powered by MB ACADEMY.
+        <p className="mt-6 text-base md:text-lg text-[#E0E0E0]/80">
+          Интерактивные курсы по React и TypeScript от практикующего эксперта.
         </p>
         <div className="mt-10 flex justify-center gap-4">
-          <Link
-            to="/courses"
-            className="px-8 py-3 rounded-full bg-[#00F0FF] text-black tracking-wider font-semibold hover:shadow-neon transition"
+          <a
+            href="#courses"
+            onClick={scrollToCourses}
+            className="btn-accent px-8 py-3 rounded-full tracking-wide font-semibold"
           >
-            Start Learning
-          </Link>
-          <Link
-            to="/dashboard"
-            className="px-8 py-3 rounded-full border border-[#00F0FF] text-[#00F0FF] hover:bg-[#00F0FF] hover:text-black transition"
-          >
-            Dashboard →
-          </Link>
+            Посмотреть все курсы
+          </a>
         </div>
       </div>
     </section>

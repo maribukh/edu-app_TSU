@@ -1,8 +1,31 @@
-@import "tailwindcss/preflight";
-@tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap");
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+
+:root {
+  --accent: #00F0FF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-    background: linear-gradient(135deg, #F5F7FA 0%, #E9ECF2 100%);
-    font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #5F7A8B 0%, #2E2E2F 100%);
+  font-family: 'Orbitron', sans-serif;
+  color: #E0E0E0;
+}
+
+/* Accent helpers for links/buttons */
+.link-accent {
+  color: var(--accent);
+}
+.btn-accent {
+  background-color: var(--accent);
+  color: #0A0A0F;
+}
+.btn-accent:hover {
+  filter: brightness(0.9);
 }
