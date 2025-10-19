@@ -10,16 +10,16 @@ export default function CourseCard({ id, title, subtitle }: CourseCardProps) {
   return (
     <Link
       to={`/course/${id}`}
-      className="group block bg-[#111317] border border-transparent hover:border-[#00F0FF] p-6 rounded-lg transition duration-300 hover:shadow-[0_0_12px_#00F0FF] hover:-translate-y-1"
+      className="group block bg-white shadow-card hover:shadow-neon transition rounded-xl border-l-4 border-[#00F0FF] px-8 py-6 hover:-translate-y-1"
     >
-      <div className="flex items-start justify-between">
+      <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-[#00F0FF] transition">
+          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#00F0FF] tracking-wide">
             {title}
           </h3>
-          <p className="text-sm text-gray-400">{subtitle}</p>
+          <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
         </div>
-        <div className="w-8 h-8 border border-[#00F0FF]/30 rounded-md group-hover:border-[#00F0FF] transition"></div>
+        <div className="w-4 h-4 rounded-full border border-[#00F0FF]/40"></div>
       </div>
     </Link>
   );

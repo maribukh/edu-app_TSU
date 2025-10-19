@@ -2,37 +2,27 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center text-center px-4 sm:px-6 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=2070&auto=format&fit=crop"
-          alt="Team collaborating on a web project"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
-
-      <div className="relative z-10 max-w-4xl text-white">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-          Bring Fresh Growth To Your Skills
+    <section className="relative w-full min-h-[75vh] flex items-center justify-center text-center px-10 bg-heroGlow">
+      <div className="max-w-3xl">
+        <h1 className="text-5xl font-bold tracking-widest text-gray-900">
+          LEARN. BUILD. EVOLVE.
         </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-white/90">
-          Experience the ultimate learning journey with expert-led courses,
-          premium gear, and professional insights into modern web development.
+        <p className="mt-6 text-gray-600 tracking-wide">
+          Front-End education with clean UI principles, React, and design
+          thinking — powered by MB ACADEMY.
         </p>
-
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex justify-center gap-4">
           <Link
             to="/courses"
-            className="w-full sm:w-auto px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-full shadow-lg hover:bg-primary/90 transition-transform hover:scale-105"
+            className="px-8 py-3 rounded-full bg-[#00F0FF] text-black tracking-wider font-semibold hover:shadow-neon transition"
           >
-            Start Learning Now
+            Start Learning
           </Link>
           <Link
-            to="/about"
-            className="w-full sm:w-auto px-8 py-3 text-white font-semibold rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors"
+            to="/dashboard"
+            className="px-8 py-3 rounded-full border border-[#00F0FF] text-[#00F0FF] hover:bg-[#00F0FF] hover:text-black transition"
           >
-            Book a Free Intro
+            Dashboard →
           </Link>
         </div>
       </div>
