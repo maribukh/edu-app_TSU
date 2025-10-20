@@ -7,22 +7,30 @@ export default function CourseDetails() {
 
   if (!course) {
     return (
-      <div className="pt-28 text-center text-gray-500">Course not found.</div>
+      <div className="pt-24 text-center text-gray-500">Course not found.</div>
     );
   }
 
   return (
-    <div className="pt-28 px-10 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-gray-900 tracking-widest">
+    <div className="pt-24 px-6 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-white tracking-tight">
         {course.title}
       </h1>
-      <p className="text-gray-500 mt-4">{course.subtitle}</p>
-      <div className="mt-10 text-gray-700 leading-relaxed">
-        <p>
+      <p className="text-lg text-gray-600 mt-2">{course.subtitle}</p>
+
+      <div className="mt-8 p-6 bg-white shadow-md rounded-xl border border-gray-100">
+        <p className="text-gray-700 leading-relaxed">
           Welcome to{" "}
-          <span className="text-[#00F0FF] font-semibold">{course.title}</span>.
-          This course follows real development practices...
+          <span className="text-cyan-500 font-semibold">{course.title}</span>.
+          This course is designed to give students hands-on experience with
+          real-world development practices. You'll build projects, collaborate
+          with peers, and gain skills that matter.
         </p>
+        <ul className="mt-4 list-disc list-inside text-gray-600 space-y-2">
+          <li>Interactive lessons and quizzes</li>
+          <li>Project-based learning</li>
+          <li>Mentorship and feedback</li>
+        </ul>
       </div>
     </div>
   );

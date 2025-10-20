@@ -1,43 +1,31 @@
-import { NavLink, Link } from "react-router-dom";
+const nav = [
+  { href: "#courses", label: "Courses" },
+  { href: "#about", label: "About Instructor" },
+  { href: "#contacts", label: "Contacts" },
+];
 
 export default function Header() {
   return (
-    <header className="w-full bg-white/80 backdrop-blur-md shadow-md border-b border-[#E0E6EE]">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-6 px-10">
-        <Link
-          to="/"
-          className="text-xl font-bold tracking-widest text-[#00F0FF]"
+    <header className="sticky top-0 z-50 w-full bg-white/10 backdrop-blur-md border-b border-white/10">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <a
+          href="#"
+          className="text-lg md:text-xl font-bold tracking-widest text-[#E0E0E0]"
         >
-          MB ACADEMY
-        </Link>
+          MB Dev Academy
+        </a>
 
-        <nav className="flex gap-6">
-          <NavLink
-            to="/"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/courses"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Courses
-          </NavLink>
-          <NavLink
-            to="/dashboard"
-            className="px-5 py-2 rounded-full text-sm tracking-wide text-gray-700 hover:text-[#00F0FF] hover:shadow-neon transition"
-          >
-            Dashboard
-          </NavLink>
+        <nav className="hidden sm:flex items-center gap-6">
+          {nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm tracking-wide text-[#E0E0E0]/80 hover:text-neonBlue transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
-
-        <Link
-          to="/login"
-          className="px-6 py-2 border border-[#00F0FF] rounded-full text-[#00F0FF] text-sm hover:bg-[#00F0FF] hover:text-black transition shadow-neon"
-        >
-          Login
-        </Link>
       </div>
     </header>
   );

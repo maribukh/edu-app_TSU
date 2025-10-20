@@ -1,44 +1,34 @@
-export default function Dashboard() {
+import { Link } from "react-router-dom";
+
+export default function Login() {
   return (
-    <div className="min-h-screen px-10 py-28 flex justify-center">
-      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-card p-12 border-t-4 border-[#00F0FF]">
-        <h1 className="text-3xl font-bold tracking-widest text-gray-900 text-center mb-6">
-          WELCOME BACK, STUDENT
-        </h1>
-        <p className="text-gray-500 text-center mb-10">
-          Mariam Bukhaidze // React Front-End Developer Track
-        </p>
-        <div className="mb-10">
-          <p className="text-sm text-gray-500 tracking-wider mb-2">
-            COURSE PROGRESSION
-          </p>
-          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-            <div className="h-full w-[40%] bg-[#00F0FF]"></div>
-          </div>
-          <p className="text-xs text-gray-500 mt-1">40% Complete</p>
-        </div>
-        <div className="grid sm:grid-cols-3 gap-6">
-          <a
-            href="https://github.com/maribukh"
-            target="_blank"
-            className="p-6 rounded-xl bg-[#F5F7FA] hover:shadow-neon transition border"
-          >
-            <p className="text-gray-700 text-center tracking-wide">GitHub</p>
-          </a>
-          <a
-            href="/courses"
-            className="p-6 rounded-xl bg-[#F5F7FA] hover:shadow-neon transition border"
-          >
-            <p className="text-gray-700 text-center tracking-wide">
-              Continue Courses →
-            </p>
-          </a>
-          <a
-            href="https://linkedin.com"
-            className="p-6 rounded-xl bg-[#F5F7FA] hover:shadow-neon transition border"
-          >
-            <p className="text-gray-700 text-center tracking-wide">LinkedIn</p>
-          </a>
+    <div className="flex items-center justify-center px-6 py-28">
+      <div className="m-[5rem] max-w-md bg-white shadow-card p-10 rounded-2xl">
+        <h2 className="text-2xl font-bold text-center mb-8 tracking-widest text-white">
+          ACCESS PANEL
+        </h2>
+        <form className="space-y-6 my-[2rem]">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full my-[2rem] px-5 py-3 border focus:border-[#FF00FF] outline-none transition shadow"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full  px-5 py-4 border focus:border-[#FF00FF] outline-none transition shadow"
+          />
+          <button className="w-full mt-[4rem] py-3 bg-[#FF00FF] text-white font-semibold tracking-wider hover:shadow-neonPink transition">
+            LOGIN →
+          </button>
+        </form>
+        <div className="mt-6 flex justify-between text-xs text-gray-500">
+          <Link to="#" className="hover:text-[#FF00FF]">
+            Forgot Password?
+          </Link>
+          <Link to="/signup" className="hover:text-[#FF00FF]">
+            Create Account
+          </Link>
         </div>
       </div>
     </div>

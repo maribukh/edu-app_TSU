@@ -1,18 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import Landing from "../pages/Landing";
-import Courses from "../pages/Courses";
-import Dashboard from "../pages/Dashboard";
-import Login from "../pages/Login";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import CoursesList from "../components/CoursesList";
+import CourseFinder from "../pages/CourseFinder";
 
-const AppRoutes = () => {
+const MainPageLayout = () => (
+  <>
+    <Hero />
+    <Features />
+    <CoursesList />
+  </>
+);
+
+export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<MainPageLayout />} />
+      <Route path="/course-finder" element={<CourseFinder />} />
     </Routes>
   );
-};
-
-export default AppRoutes;
+}

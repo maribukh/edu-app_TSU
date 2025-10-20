@@ -3,13 +3,20 @@ import { coursesData } from "../data/coursesData";
 
 export default function Courses() {
   return (
-    <div className="px-10 pt-28 pb-20 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-gray-900 mb-10 tracking-widest">
+    <div className="px-6 pt-24 pb-16 max-w-7xl mx-auto">
+      <h2 className="text-4xl font-bold text-gray-800 mb-8 tracking-wide">
         Available Courses
       </h2>
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {coursesData.map((course) => (
-          <CourseCard key={course.id} {...course} />
+          <CourseCard
+            imageUrl={""}
+            category={""}
+            lessonsCount={0}
+            progress={0}
+            key={course.id}
+            {...course}
+          />
         ))}
       </div>
     </div>

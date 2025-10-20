@@ -1,10 +1,8 @@
 export default function Contacts() {
   return (
-    <footer className="mt-32 py-16 border-t border-[#E0E6EE]">
+    <footer className="mt-32 py-16">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="text-sm text-gray-500 tracking-[0.2em] mb-6">
-          CONNECT WITH MB
-        </p>
+        <p className="text-sm text-amber-100 mb-6">CONNECT WITH MB</p>
         <div className="flex justify-center gap-8 text-gray-600">
           <a
             href="mailto:mariebukhaidze@gmail.com"
