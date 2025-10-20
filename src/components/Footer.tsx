@@ -71,7 +71,7 @@ export default function Footer() {
 
       <div className="relative z-10 container mx-auto px-4 py-8 border-t border-white/10">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-neutral-400">
+          <p className="text-sm text-neutral-400 text-center sm:text-left">
             © {new Date().getFullYear()} MB Dev Academy. All Rights Reserved.
           </p>
 
