@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { academyData } from "../data/academyData.ts";
 import CourseCard from "./CourseCard.tsx";
+import Button from "./UI/Button.tsx";
 
 export default function CoursesList() {
   return (
@@ -16,11 +17,10 @@ export default function CoursesList() {
           It's like creating a character in a game—only here, you're building
           your career!
         </p>
-        <Link
-          to="/course-finder"
-          className="btn-accent mt-6 inline-block px-8 py-3 rounded-full tracking-wide font-semibold"
-        >
-          Find My Course →
+        <Link to="/course-finder">
+          <Button variant="primary" size="lg" className="mt-6">
+            Find My Course →
+          </Button>
         </Link>
       </div>
 

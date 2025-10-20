@@ -1,7 +1,8 @@
 import type React from "react";
+import Button from "./UI/Button.tsx";
 
 export default function Hero() {
-  const scrollToCourses = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToCourses = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,13 +17,9 @@ export default function Hero() {
           Interactive courses on React and TypeScript from a practicing expert.
         </p>
         <div className="mt-10 flex justify-center gap-4">
-          <a
-            href="#courses"
-            onClick={scrollToCourses}
-            className="btn-accent px-8 py-3 rounded-full tracking-wide font-semibold"
-          >
+          <Button variant="primary" size="lg" onClick={scrollToCourses}>
             View All Courses
-          </a>
+          </Button>
         </div>
       </div>
     </section>
