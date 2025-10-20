@@ -16,7 +16,17 @@ export interface EducationHistory {
   title: string;
   source: string;
   description: string;
-  keySkills: string[]; 
+  keySkills: string[];
+}
+
+export interface WorkExperience {
+  id: number;
+  period: string;
+  title: string;
+  company: string;
+  description: string;
+  keySkills: string[];
+  projects?: { name: string; url: string }[];
 }
 
 export interface Instructor {
@@ -25,6 +35,7 @@ export interface Instructor {
   bio: string;
   imageUrl?: string;
   educationHistory: EducationHistory[];
+  experience: WorkExperience[];
   contact: {
     email: string;
     github: string;
@@ -44,6 +55,32 @@ export const academyData: {
       email: "mariebukh@gmail.com",
       github: "https://github.com/maribukh",
     },
+    experience: [
+      {
+        id: 1,
+        period: "2025 (2 Months)",
+        title: "Full-Stack Developer Intern",
+        company: "Itransition",
+        description:
+          "Engaged in a hands-on internship, gaining practical experience in both front-end and back-end development. Focused on building and integrating full-stack applications.",
+        keySkills: [
+          "Node.js & Express",
+          "REST API Design",
+          "Database Integration",
+          "Full-Stack Architecture",
+        ],
+        projects: [
+          {
+            name: "User Management App",
+            url: "https://github.com/maribukh/user-management-app_itransition",
+          },
+          {
+            name: "Music Store API",
+            url: "https://github.com/maribukh/music-store-backend",
+          },
+        ],
+      },
+    ],
     educationHistory: [
       {
         id: 1,

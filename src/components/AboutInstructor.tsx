@@ -6,6 +6,8 @@ import {
   FaCode,
   FaChevronDown,
   FaCheck,
+  FaBriefcase,
+  FaGithub,
 } from "react-icons/fa";
 
 const getIconForTitle = (title: string) => {
@@ -58,7 +60,6 @@ export default function AboutInstructor() {
               )}
             </div>
           </div>
-
           <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-widest font-orbitron">
             {instructor.name}
           </h2>
@@ -66,6 +67,75 @@ export default function AboutInstructor() {
           <p className="mt-4 max-w-2xl mx-auto text-base text-gray-300/90">
             {instructor.bio}
           </p>
+        </div>
+
+        <div className="my-12">
+          <h3 className="text-2xl md:text-3xl font-bold tracking-widest mb-8 font-orbitron">
+            Professional Experience
+          </h3>
+          <div className="text-left">
+            {instructor.experience.map((exp) => (
+              <div
+                key={exp.id}
+                className="bg-white/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-neonBlue/20"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="md:col-span-2">
+                    <div className="flex items-center gap-4">
+                      <FaBriefcase className="text-3xl text-neonBlue flex-shrink-0" />
+                      <div>
+                        <h4 className="text-xl font-bold text-white">
+                          {exp.title}
+                        </h4>
+                        <p className="text-base font-semibold text-neonBlue">
+                          {exp.company}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm text-gray-300/80">
+                      {exp.description}
+                    </p>
+                  </div>
+                  <div className="md:col-span-1 md:border-l md:border-white/10 md:pl-6">
+                    <h5 className="text-sm font-semibold text-white mb-3">
+                      Key Skills
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.keySkills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 text-xs rounded-full bg-neonBlue/20 text-neonBlue"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                    {exp.projects && (
+                      <div className="mt-4">
+                        <h5 className="text-sm font-semibold text-white mb-3">
+                          Projects
+                        </h5>
+                        <div className="space-y-2">
+                          {exp.projects.map((project) => (
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              key={project.name}
+                              className="flex items-center gap-2 text-sm text-gray-300 hover:text-neonBlue transition-colors duration-200"
+                            >
+                              <FaGithub />
+                              {project.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="my-12 h-px bg-white/10 w-3/4 mx-auto"></div>
@@ -77,7 +147,6 @@ export default function AboutInstructor() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {instructor.educationHistory.map((item) => {
               const isExpanded = expandedCardId === item.id;
-
               return (
                 <div
                   key={item.id}
@@ -89,7 +158,6 @@ export default function AboutInstructor() {
                     className="absolute inset-0 bg-neonBlue/10 rounded-xl blur-lg 
                                opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   ></div>
-
                   <div className="relative p-5 cursor-pointer">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
@@ -112,7 +180,6 @@ export default function AboutInstructor() {
                         }`}
                       />
                     </div>
-
                     <div
                       className={`transition-all duration-500 ease-in-out overflow-hidden ${
                         isExpanded

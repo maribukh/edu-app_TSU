@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Course } from "../data/academyData";
 import Button from "./UI/Button.tsx";
+import { FaClock, FaUsers, FaArrowRight, FaTag } from "react-icons/fa";
 
 interface Props {
   course: Course;
@@ -10,50 +11,74 @@ export default function CourseCard({ course }: Props) {
   const { id, title, duration, description, technologies, level, price } =
     course;
 
-  const levelColor: { [key: string]: string } = {
-    Beginner: "bg-green-500/20 text-green-400",
-    Advanced: "bg-yellow-500/20 text-yellow-400",
-    Workshop: "bg-purple-500/20 text-purple-400",
+  const levelStyles: { [key: string]: { border: string; text: string } } = {
+    Beginner: { border: "border-green-400", text: "text-green-400" },
+    Advanced: { border: "border-yellow-400", text: "text-yellow-400" },
+    Workshop: { border: "border-purple-400", text: "text-purple-400" },
   };
 
+  const currentLevelStyle = levelStyles[level] || {
+    border: "border-gray-400",
+    text: "text-gray-400",
+  };
+
+  const groupSize =
+    level === "Workshop" ? "Up to 12 students" : "Up to 5 students";
+
   return (
-    <article className="h-full bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col shadow-md hover:shadow-lg transition-transform transform hover:scale-[1.02]">
-      <div className="flex-grow">
-        <div className="flex items-center justify-between gap-4">
-          <h3 className="text-xl font-semibold">{title}</h3>
+    <article className="group relative h-full bg-white/5 border border-white/10 rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:border-white/20 will-change-transform">
+      <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/10 via-transparent to-neonPink/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <div className="relative p-6 flex-grow flex flex-col">
+        <div className="flex items-center justify-between text-xs font-semibold">
           <span
-            className={`px-3 py-1 text-xs rounded-full font-semibold ${
-              levelColor[level] || "bg-gray-500/20 text-gray-400"
-            }`}
+            className={`px-3 py-1 border rounded-full ${currentLevelStyle.border} ${currentLevelStyle.text}`}
           >
             {level}
           </span>
+          <span className="flex items-center gap-2 text-gray-400">
+            <FaClock />
+            {duration}
+          </span>
         </div>
-        <p className="mt-1 text-sm text-[#E0E0E0]/70">Duration: {duration}</p>
 
-        <p className="mt-4 text-sm md:text-base text-[#E0E0E0]/90">
+        <h3 className="mt-4 text-xl font-bold text-white">{title}</h3>
+
+        <p className="mt-2 text-sm text-gray-300/80 line-clamp-3 flex-grow">
           {description}
         </p>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          {technologies.map((tech: string) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-xs rounded-full bg-white/10 text-[#E0E0E0] border border-white/10"
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="mt-4">
+          <p className="flex items-center gap-2 text-sm font-semibold text-neonBlue">
+            <FaUsers />
+            {groupSize}
+          </p>
         </div>
-      </div>
 
-      <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-        <p className="text-lg font-bold">{price} GEL</p>
-        <Link to={`/course/${id}`}>
-          <Button variant="primary" size="md">
-            Learn More
-          </Button>
-        </Link>
+        <div className="mt-5 pt-4 border-t border-white/10">
+          <h4 className="text-xs font-semibold tracking-wider uppercase text-gray-500 mb-2">
+            Technologies
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {technologies.slice(0, 4).map((tech: string) => (
+              <span
+                key={tech}
+                className="px-2 py-1 text-xs rounded bg-white/10 text-gray-300"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+          <p className="text-xl font-bold text-white">{price} GEL</p>
+          <Link to={`/course/${id}`}>
+            <Button variant="primary" size="md">
+              <span>Details</span>
+            </Button>
+          </Link>
+        </div>
       </div>
     </article>
   );
