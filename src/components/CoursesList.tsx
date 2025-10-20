@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { academyData } from "../data/academyData.ts";
 import CourseCard from "./CourseCard.tsx";
 import Button from "./UI/Button.tsx";
-import { FaCompass, FaArrowRight } from "react-icons/fa";
+import { FaCompass } from "react-icons/fa";
 
 export default function CoursesList() {
   return (

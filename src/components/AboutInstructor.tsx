@@ -42,11 +42,11 @@ export default function AboutInstructor() {
         <div className="flex flex-col items-center">
           <div
             className={`relative w-48 h-48 md:w-56 md:h-56 rounded-full p-1.5 
-                        bg-gradient-to-br from-neonBlue via-purple-500 to-neonPink 
+                        bg-gradient-to-br from-neonBlue via-neutral-50 to-neonPink 
                         shadow-neon-glow
                         animate-gradient-rotation`}
           >
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-gray-950 bg-gray-900">
+            <div className="relative w-full h-full rounded-full overflow-hidden bg-gray-900">
               {instructor.imageUrl ? (
                 <img
                   alt={instructor.name}

@@ -7,7 +7,6 @@ import {
   FaTag,
   FaCode,
   FaRoad,
-  FaArrowRight,
 } from "react-icons/fa";
 
 export default function CourseDetails() {
