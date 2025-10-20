@@ -1,23 +1,31 @@
-import Header from "./components/Header";
-import AppRoutes from "./routes/AppRoutes";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import CoursesList from "./components/CoursesList";
-import AboutInstructor from "./components/AboutInstructor";
-import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header.tsx";
+import Hero from "./components/Hero.tsx";
+import Features from "./components/Features.tsx";
+import CoursesList from "./components/CoursesList.tsx";
+import AboutInstructor from "./components/AboutInstructor.tsx";
+import Footer from "./components/Footer.tsx";
+import CourseFinder from "./pages/CourseFinder.tsx";
+
+// A layout component for the main page to keep the code clean
+const MainPageLayout = () => (
+  <>
+    <Hero />
+    <Features />
+    <CoursesList />
+    <AboutInstructor />
+  </>
+);
 
 function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0F] text-white">
       <Header />
-      <main className="pt-16">
-        <div className="container mx-auto px-4">
-          <Hero />
-          <Features />
-          <CoursesList />
-          <AboutInstructor />
-        </div>
-        <AppRoutes />
+      <main>
+        <Routes>
+          <Route path="/" element={<MainPageLayout />} />
+          <Route path="/course-finder" element={<CourseFinder />} />
+        </Routes>
       </main>
       <Footer />
     </div>
