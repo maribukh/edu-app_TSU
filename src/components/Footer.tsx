@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { academyData } from "../data/academyData";
-import { FaGithub, FaEnvelope, FaArrowRight, FaCompass } from "react-icons/fa";
+import { FaGithub, FaEnvelope } from "react-icons/fa";
+import Button from "./UI/Button";
 
-const nav = [
+const navLinks = [
   { href: "#courses", label: "Courses" },
-  { href: "#about", label: "About Instructor" },
+  { href: "#about", label: "About" },
   { href: "#contacts", label: "Contacts" },
 ];
 
 export default function Footer() {
-  const { instructor, courses } = academyData;
+  const { instructor } = academyData;
   const [email, setEmail] = useState("");
 
   const scrollToSection = (
@@ -18,145 +18,92 @@ export default function Footer() {
     href: string
   ) => {
     e.preventDefault();
-    const id = href.substring(1);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById(href.substring(1))
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Subscribed with:", email);
+    if (!email) return;
     alert(`Thank you for subscribing, ${email}!`);
-    setEmail(""); 
+    setEmail("");
   };
-
-
-  const linkStyle =
-    "text-sm text-gray-400 hover:text-neonBlue transition-colors duration-200 cursor-pointer";
 
   return (
     <footer
       id="contacts"
-      className="mt-20 border-t border-white/10 bg-gray-950"
+      className="relative mt-20 border-t border-white/10 bg-black overflow-hidden"
     >
-      <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-   
-        <div className="md:col-span-2 lg:col-span-1">
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="text-lg md:text-xl font-bold tracking-widest text-gray-100 cursor-pointer"
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full blur-3xl opacity-40 animate-aurora"></div>
+
+      <div className="relative z-10 container mx-auto px-4 py-16 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+          Join the Developer Community
+        </h2>
+        <p className="mt-4 text-lg text-neutral-300 max-w-xl mx-auto">
+          Get the latest course news, career tips, and exclusive offers directly
+          in your inbox. No spam, ever.
+        </p>
+
+        <form
+          onSubmit={handleSubscribe}
+          className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+        >
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="your.email@example.com"
+            required
+            className="flex-grow min-w-0 px-4 py-3 rounded-md bg-white/5 text-white text-base border border-white/10 focus:outline-none focus:ring-2 focus:ring-neonBlue/80 backdrop-blur-sm transition"
+          />
+          <Button
+            type="submit"
+            variant="glass"
+            size="lg"
+            className="!rounded-md"
           >
-            MB Dev Academy
-          </a>
-          <p className="mt-3 text-sm text-gray-400 max-w-xs">
-            Interactive courses on React and TypeScript from a practicing
-            expert.
-          </p>
-        </div>
-
-        <div>
-          <h4 className="font-semibold tracking-widest text-sm uppercase text-gray-500 mb-4">
-            Navigate
-          </h4>
-          <ul className="space-y-3">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
-                  className={linkStyle}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <Link
-                to="/course-finder"
-                className={linkStyle + " flex items-center gap-2"}
-              >
-                Find My Course <FaCompass />
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-
-        <div>
-          <h4 className="font-semibold tracking-widest text-sm uppercase text-gray-500 mb-4">
-            Programs
-          </h4>
-          <ul className="space-y-3">
-            {courses.map((course) => (
-              <li key={course.id}>
-                <Link to={`/course/${course.id}`} className={linkStyle}>
-                  {course.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-
-        <div>
-          <h4 className="font-semibold tracking-widest text-sm uppercase text-gray-500 mb-4">
-            Stay Updated
-          </h4>
-          <p className="text-sm text-gray-400 mb-4">
-            Get the latest course news, tips, and offers directly in your inbox.
-          </p>
-          <form onSubmit={handleSubscribe} className="flex gap-2">
-            <label htmlFor="email-subscribe" className="sr-only">
-              Email Address
-            </label>
-            <input
-              id="email-subscribe"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              required
-    
-              className="flex-grow min-w-0 px-3 py-2 rounded-md bg-gray-800 text-gray-200 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-neonBlue"
-            />
-            <button
-              type="submit"
-              aria-label="Subscribe"
-
-              className="flex-shrink-0 px-3 py-2 rounded-md bg-neonBlue text-gray-900 font-medium hover:bg-neonBlue/80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-neonBlue"
-            >
-              <FaArrowRight />
-            </button>
-          </form>
-        </div>
+            Subscribe
+          </Button>
+        </form>
       </div>
 
-
-      <div className="container mx-auto px-4 py-6 border-t border-white/10">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-center sm:text-left text-xs text-gray-500">
+      <div className="relative z-10 container mx-auto px-4 py-8 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-neutral-400">
             © {new Date().getFullYear()} MB Dev Academy. All Rights Reserved.
           </p>
+
+          <nav className="flex gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="text-sm text-neutral-300 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
           <div className="flex items-center gap-5">
             <a
               href={instructor.contact.github}
               target="_blank"
               rel="noreferrer"
-              aria-label="GitHub Profile"
-              className="text-gray-500 hover:text-white transition-colors duration-200"
+              aria-label="GitHub"
+              className="text-neutral-400 hover:text-white transition-transform hover:scale-110"
             >
-              <FaGithub size={20} />
+              <FaGithub size={22} />
             </a>
             <a
               href={`mailto:${instructor.contact.email}`}
-              aria-label="Email Instructor"
-              className="text-gray-500 hover:text-white transition-colors duration-200"
+              aria-label="Email"
+              className="text-neutral-400 hover:text-white transition-transform hover:scale-110"
             >
-              <FaEnvelope size={20} />
+              <FaEnvelope size={22} />
             </a>
           </div>
         </div>

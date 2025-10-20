@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Course } from "../data/academyData";
 import Button from "./UI/Button.tsx";
-import { FaClock, FaUsers, FaArrowRight, FaTag } from "react-icons/fa";
+import { FaClock, FaUsers } from "react-icons/fa";
 
 interface Props {
   course: Course;
