@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { academyData } from "../data/academyData";
 import Button from "../components/UI/Button.tsx";
+import SkillTrajectory from "../components/SkillTrajectory.tsx";
 
 export default function CourseDetails() {
   const { id } = useParams<{ id: string }>();
@@ -80,7 +81,7 @@ export default function CourseDetails() {
             ))}
           </div>
         </div>
-
+        <SkillTrajectory technologies={[]} level={"Beginner"} />
         <div className="mt-16 text-center">
           <Link to="/course-finder">
             <Button variant="primary" size="lg">
