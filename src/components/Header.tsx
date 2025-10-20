@@ -1,3 +1,5 @@
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 const nav = [
   { href: "#courses", label: "Courses" },
   { href: "#about", label: "About Instructor" },
@@ -5,38 +7,49 @@ const nav = [
 ];
 
 export default function Header() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollToSection = (
+  const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     e.preventDefault();
-    const id = href.substring(1); 
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const id = href.substring(1);
+
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/10 backdrop-blur-md border-b border-white/10">
+    <header className="sticky top-0 z-50 w-full bg-black/30 backdrop-blur-lg border-b border-white/10">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a
-          href="#"
+        <Link
+          to="/"
           onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            if (location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
           }}
-          className="text-lg md:text-xl font-bold tracking-widest text-[#E0E0E0] cursor-pointer"
+          className="text-lg md:text-xl font-bold tracking-widest text-white cursor-pointer font-orbitron"
         >
           MB Dev Academy
-        </a>
+        </Link>
 
         <nav className="hidden sm:flex items-center gap-6">
           {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-     
-              onClick={(e) => scrollToSection(e, item.href)}
-              className="text-sm tracking-wide text-[#E0E0E0]/80 hover:text-neonBlue transition-colors cursor-pointer"
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-sm tracking-wide text-gray-300 hover:text-neonBlue transition-colors cursor-pointer"
             >
               {item.label}
             </a>

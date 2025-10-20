@@ -1,6 +1,19 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/UI/Button";
+import {
+  FaUser,
+  FaEnvelope,
+  FaRocket,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+const benefits = [
+  "Expert-led live sessions",
+  "Practical, project-based learning",
+  "Portfolio-ready final project",
+  "Access to a private community",
+];
 
 export default function CourseFinder() {
   const [name, setName] = useState("");
@@ -16,84 +29,101 @@ export default function CourseFinder() {
   };
 
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 container mx-auto">
-      <div className="w-full max-w-lg">
-        {submitted ? (
-          <div className="bg-white/10 border border-neonBlue rounded-2xl p-8">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-widest text-neonBlue">
-              Thank You!
+    <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-4xl bg-white/5 border border-white/10 rounded-2xl shadow-lg backdrop-blur-lg overflow-hidden">
+        <div className="grid md:grid-cols-2">
+          <div className="p-8 bg-black/20">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-widest text-white font-orbitron">
+              Start Your Journey
             </h1>
-            <p className="mt-4 text-base md:text-lg text-[#E0E0E0]/80">
-              Your registration has been received. We will contact you shortly
-              with the next steps.
+            <p className="mt-4 text-gray-300/80">
+              By registering, you take the first step towards mastering modern
+              web development and building the future.
             </p>
-            <Link to="/">
-              <Button variant="primary" className="mt-8">
-                Back to Homepage
-              </Button>
-            </Link>
+            <ul className="mt-8 space-y-3">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-center gap-3">
+                  <FaCheckCircle className="text-neonBlue text-lg" />
+                  <span className="text-gray-300">{benefit}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        ) : (
-          <>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-widest">
-              Register for a Course
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-[#E0E0E0]/80">
-              Fill out the form below to get started on your development
-              journey. We're excited to have you!
-            </p>
-            <form
-              onSubmit={handleSubmit}
-              className="mt-10 text-left flex flex-col gap-4"
-            >
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-[#E0E0E0]/80 mb-2"
-                >
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:ring-2 focus:ring-neonBlue focus:outline-none transition"
-                  placeholder="Enter your full name"
-                />
+
+          <div className="p-8">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center text-center h-full">
+                <FaRocket className="text-6xl text-neonBlue" />
+                <h2 className="mt-6 text-3xl font-bold text-white font-orbitron">
+                  Registration Sent!
+                </h2>
+                <p className="mt-2 text-gray-300/80">
+                  Thank you! We've received your details and will contact you
+                  shortly with the next steps.
+                </p>
+                <Link to="/" className="mt-8">
+                  <Button variant="primary">Back to Homepage</Button>
+                </Link>
               </div>
+            ) : (
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-[#E0E0E0]/80 mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:ring-2 focus:ring-neonBlue focus:outline-none transition"
-                  placeholder="you@example.com"
-                />
+                <h2 className="text-2xl font-bold text-white mb-6">
+                  Fill in your details
+                </h2>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-400 mb-2"
+                    >
+                      Full Name
+                    </label>
+                    <div className="relative">
+                      <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                      <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="w-full bg-black/20 border border-white/20 rounded-lg pl-10 pr-4 py-3 text-white placeholder-white/40 focus:ring-2 focus:ring-neonBlue focus:outline-none transition"
+                        placeholder="Your full name"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-400 mb-2"
+                    >
+                      Email Address
+                    </label>
+                    <div className="relative">
+                      <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="w-full bg-black/20 border border-white/20 rounded-lg pl-10 pr-4 py-3 text-white placeholder-white/40 focus:ring-2 focus:ring-neonBlue focus:outline-none transition"
+                        placeholder="you@example.com"
+                      />
+                    </div>
+                  </div>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    className="mt-4 w-full"
+                  >
+                    <span>Register Now</span>
+                  </Button>
+                </form>
               </div>
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                className="mt-4 w-full"
-              >
-                Register Now
-              </Button>
-            </form>
-            <Link to="/" className="mt-6 inline-block">
-              <Button variant="secondary">Back to All Courses</Button>
-            </Link>
-          </>
-        )}
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

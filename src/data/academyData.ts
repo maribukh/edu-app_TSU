@@ -8,6 +8,7 @@ export interface Course {
   description: string;
   technologies: string[];
   price: number;
+  roadmap: { week: string; title: string; content: string }[];
 }
 
 export interface EducationHistory {
@@ -168,8 +169,41 @@ export const academyData: {
         "HTML5",
         "CSS3",
         "TailwindCSS",
+        "Git",
       ],
       price: 1800,
+      roadmap: [
+        {
+          week: "1-2",
+          title: "Foundations of Web",
+          content:
+            "Master HTML5 semantics, modern CSS with Flexbox & Grid, and core JavaScript (ES6+) concepts.",
+        },
+        {
+          week: "3-5",
+          title: "Introduction to React",
+          content:
+            "Learn JSX, component architecture, props, state management with React Hooks (useState, useEffect).",
+        },
+        {
+          week: "6-8",
+          title: "Advanced React & TypeScript",
+          content:
+            "Integrate TypeScript for type safety, handle forms, and manage complex state with context API.",
+        },
+        {
+          week: "9-10",
+          title: "Styling & API Integration",
+          content:
+            "Build beautiful UIs with TailwindCSS and fetch data from real-world APIs.",
+        },
+        {
+          week: "11-12",
+          title: "Final Project",
+          content:
+            "Apply all learned skills to build a complete, portfolio-ready web application from scratch.",
+        },
+      ],
     },
     {
       id: "ui-architect",
@@ -178,8 +212,40 @@ export const academyData: {
       duration: "6 Weeks",
       description:
         "For those already familiar with JavaScript and React who want to build truly beautiful and professional interfaces. We'll explore advanced styling techniques and component libraries.",
-      technologies: ["TailwindCSS", "SCSS", "CSS Grid & Flexbox", "Animations"],
+      technologies: [
+        "TailwindCSS",
+        "SCSS",
+        "CSS Animations",
+        "Framer Motion",
+        "Storybook",
+      ],
       price: 950,
+      roadmap: [
+        {
+          week: "1",
+          title: "Advanced CSS Techniques",
+          content:
+            "Deep dive into CSS Grid, custom properties, and advanced selectors for complex layouts.",
+        },
+        {
+          week: "2-3",
+          title: "Mastering TailwindCSS",
+          content:
+            "Customize themes, create plugins, and optimize for production with a utility-first workflow.",
+        },
+        {
+          week: "4",
+          title: "UI Animation Principles",
+          content:
+            "Learn the fundamentals of web animation, using CSS transitions, keyframes, and introduction to Framer Motion.",
+        },
+        {
+          week: "5-6",
+          title: "Component Driven Development",
+          content:
+            "Build a reusable component library and document it professionally using Storybook.",
+        },
+      ],
     },
     {
       id: "real-time-chat-workshop",
@@ -188,8 +254,40 @@ export const academyData: {
       duration: "4 Weeks",
       description:
         "Maximum practice, minimum theory. In 4 weeks, we will build a fully functional real-time chat application from scratch. You'll learn to work with APIs and manage complex state.",
-      technologies: ["React", "TypeScript", "Fetch API", "WebSockets (Basics)"],
+      technologies: [
+        "React",
+        "TypeScript",
+        "WebSocket",
+        "Node.js (Express)",
+        "Socket.IO",
+      ],
       price: 800,
+      roadmap: [
+        {
+          week: "1",
+          title: "Project Setup & UI",
+          content:
+            "Initialize the project, set up the development environment, and build the core chat interface with React.",
+        },
+        {
+          week: "2",
+          title: "Back-End with Express & Socket.IO",
+          content:
+            "Create a basic Node.js server and establish a real-time WebSocket connection.",
+        },
+        {
+          week: "3",
+          title: "Real-Time Communication",
+          content:
+            "Implement logic for sending and receiving messages in real-time between multiple clients.",
+        },
+        {
+          week: "4",
+          title: "Features & Deployment",
+          content:
+            "Add features like user lists and typing indicators, and prepare the application for deployment.",
+        },
+      ],
     },
   ],
 };
