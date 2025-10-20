@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { academyData } from "../data/academyData";
-// --- UI Imports ---
-// Using react-icons for a cleaner, more modern look than emojis
 import { FaGithub, FaEnvelope, FaArrowRight, FaCompass } from "react-icons/fa";
 
 const nav = [
   { href: "#courses", label: "Courses" },
   { href: "#about", label: "About Instructor" },
-  { href: "#contacts", label: "Contacts" }, 
+  { href: "#contacts", label: "Contacts" },
 ];
 
 export default function Footer() {
@@ -26,14 +24,14 @@ export default function Footer() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-
     console.log("Subscribed with:", email);
     alert(`Thank you for subscribing, ${email}!`);
-    setEmail("");
+    setEmail(""); 
   };
 
+
   const linkStyle =
-    "text-sm text-gray-400 hover:text-blue-400 transition-colors duration-200 cursor-pointer";
+    "text-sm text-gray-400 hover:text-neonBlue transition-colors duration-200 cursor-pointer";
 
   return (
     <footer
@@ -41,6 +39,7 @@ export default function Footer() {
       className="mt-20 border-t border-white/10 bg-gray-950"
     >
       <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+   
         <div className="md:col-span-2 lg:col-span-1">
           <a
             href="#"
@@ -85,6 +84,7 @@ export default function Footer() {
           </ul>
         </div>
 
+
         <div>
           <h4 className="font-semibold tracking-widest text-sm uppercase text-gray-500 mb-4">
             Programs
@@ -99,6 +99,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
 
         <div>
           <h4 className="font-semibold tracking-widest text-sm uppercase text-gray-500 mb-4">
@@ -118,12 +119,14 @@ export default function Footer() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="flex-grow min-w-0 px-3 py-2 rounded-md bg-gray-800 text-gray-200 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    
+              className="flex-grow min-w-0 px-3 py-2 rounded-md bg-gray-800 text-gray-200 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-neonBlue"
             />
             <button
               type="submit"
               aria-label="Subscribe"
-              className="flex-shrink-0 px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+              className="flex-shrink-0 px-3 py-2 rounded-md bg-neonBlue text-gray-900 font-medium hover:bg-neonBlue/80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-neonBlue"
             >
               <FaArrowRight />
             </button>
@@ -131,11 +134,13 @@ export default function Footer() {
         </div>
       </div>
 
+
       <div className="container mx-auto px-4 py-6 border-t border-white/10">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-center sm:text-left text-xs text-gray-500">
             © {new Date().getFullYear()} MB Dev Academy. All Rights Reserved.
           </p>
+
           <div className="flex items-center gap-5">
             <a
               href={instructor.contact.github}
