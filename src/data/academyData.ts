@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Photo from "../assets/profilephoto.jpg";
 
 export interface Course {
@@ -11,6 +12,7 @@ export interface Course {
 }
 
 export interface EducationHistory {
+  [x: string]: ReactNode;
   year: string;
   title: string;
   source: string;

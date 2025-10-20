@@ -33,7 +33,7 @@ export default function AboutInstructor() {
             </h4>
             <div className="space-y-4">
               {instructor.educationHistory.map((item) => (
-                <div key={item.id}>
+                <div key={String(item.id)}>
                   <p className="font-semibold">
                     {item.title}{" "}
                     <span className="text-sm text-[#E0E0E0]/70 font-normal">

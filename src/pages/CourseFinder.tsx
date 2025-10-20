@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/UI/Button";
 
 export default function CourseFinder() {
   const [name, setName] = useState("");
@@ -26,11 +27,10 @@ export default function CourseFinder() {
               Your registration has been received. We will contact you shortly
               with the next steps.
             </p>
-            <Link
-              to="/"
-              className="btn-accent mt-8 inline-block px-8 py-3 rounded-full tracking-wide font-semibold"
-            >
-              Back to Homepage
+            <Link to="/">
+              <Button variant="primary" className="mt-8">
+                Back to Homepage
+              </Button>
             </Link>
           </div>
         ) : (
@@ -80,18 +80,17 @@ export default function CourseFinder() {
                   placeholder="you@example.com"
                 />
               </div>
-              <button
+              <Button
                 type="submit"
-                className="btn-accent mt-4 w-full px-10 py-4 rounded-full tracking-wide font-semibold text-lg"
+                variant="primary"
+                size="lg"
+                className="mt-4 w-full"
               >
                 Register Now
-              </button>
+              </Button>
             </form>
-            <Link
-              to="/"
-              className="mt-6 inline-block text-[#E0E0E0]/70 hover:text-white transition-colors"
-            >
-              Back to All Courses
+            <Link to="/" className="mt-6 inline-block">
+              <Button variant="secondary">Back to All Courses</Button>
             </Link>
           </>
         )}
