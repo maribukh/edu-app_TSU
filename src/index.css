@@ -30,3 +30,25 @@ body {
 .btn-accent:hover {
     filter: brightness(0.9);
 }
+
+
+@layer utilities {
+    @keyframes rotate-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .animate-gradient-rotation {
+        background-size: 200% 200%;
+        animation: rotate-gradient 6s ease-in-out infinite;
+    }
+}

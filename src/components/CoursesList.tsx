@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { academyData } from "../data/academyData.ts";
 import CourseCard from "./CourseCard.tsx";
 import Button from "./UI/Button.tsx";
-import { FaCompass, FaArrowRight } from "react-icons/fa"; 
+import { FaCompass, FaArrowRight } from "react-icons/fa";
 
 export default function CoursesList() {
   return (
@@ -13,7 +13,7 @@ export default function CoursesList() {
 
       <div className="mb-12 bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
         <h3 className="text-2xl font-bold flex items-center justify-center gap-3">
-          <FaCompass className="text-blue-400" /> 
+          <FaCompass className="text-blue-400" />
           Don't know where to start?
         </h3>
         <p className="mt-2 text-[#E0E0E0]/80 max-w-2xl mx-auto">
@@ -24,7 +24,6 @@ export default function CoursesList() {
         <Link to="/course-finder">
           <Button variant="primary" size="lg" className="mt-6">
             Find My Course
-            <FaArrowRight className="ml-2" /> 
           </Button>
         </Link>
       </div>

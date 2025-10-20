@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import Photo from "../assets/profilephoto.jpg";
 
 export interface Course {
@@ -12,10 +11,12 @@ export interface Course {
 }
 
 export interface EducationHistory {
-  [x: string]: ReactNode;
-  year: string;
+  id: number;
+  period: string;
   title: string;
   source: string;
+  description: string;
+  keySkills: string[]; 
 }
 
 export interface Instructor {
@@ -38,31 +39,80 @@ export const academyData: {
     name: "Mariam Bukhaidze",
     imageUrl: Photo,
     title: "Software Engineer & Front-End Developer",
-    bio: "Passionate Front-End Developer with hands-on experience in React and TypeScript. I love building responsive, user-friendly applications and continuously learning new technologies to improve my skills.",
+    bio: "Passionate Front-End Developer with hands-on experience in React and TypeScript through academic and personal projects. I love building responsive, user-friendly applications and continuously learning new technologies to improve my skills.",
     contact: {
       email: "mariebukh@gmail.com",
       github: "https://github.com/maribukh",
     },
     educationHistory: [
       {
-        year: "2024",
-        title: "Front-End with React",
-        source: "Tbilisi School of Communication",
-      },
-      {
-        year: "2024 - 2025",
-        title: "Front-End Development ",
+        id: 1,
+        period: "2020 - 2024",
+        title: "Bachelor of Business Administration (IT Management)",
         source: "Ivane Javakhishvili Tbilisi State University",
+        description:
+          "Received a foundational education in business principles with a focus on information technology management.",
+        keySkills: [
+          "Project Management",
+          "IT Strategy",
+          "Business Analysis",
+          "Database Fundamentals",
+        ],
       },
       {
-        year: "2025 - Present",
+        id: 2,
+        period: "2024 - Present",
+        title: "Front-End Development Program",
+        source: "Ivane Javakhishvili Tbilisi State University",
+        description:
+          "Gained hands-on experience with React, TypeScript, and modern styling tools like TailwindCSS.",
+        keySkills: [
+          "React & JSX",
+          "TypeScript",
+          "Responsive Design (Flexbox & Grid)",
+          "State Management",
+        ],
+      },
+      {
+        id: 3,
+        period: "2025 - Present",
         title: "Women Mentorship in Tech",
         source: "Business and Technology University",
+        description:
+          "Developing collaborative projects with Angular & TypeScript, while practicing teamwork and agile methods.",
+        keySkills: [
+          "Agile Methodologies",
+          "Team Collaboration (Git)",
+          "Angular Basics",
+          "Code Review",
+        ],
       },
       {
-        year: "2025",
+        id: 4,
+        period: "2024 - 2025",
+        title: "Front-End with React",
+        source: "Tbilisi School of Communication",
+        description:
+          "Completed an intensive course focused on practical React development skills and modern workflows.",
+        keySkills: [
+          "Component Architecture",
+          "React Hooks",
+          "API Integration (Fetch)",
+          "Vite",
+        ],
+      },
+      {
+        id: 5,
+        period: "2025",
         title: "Front-End Programming with React",
         source: "New Horizons",
+        description:
+          "Further specialized skills in React, focusing on advanced state management and performance optimization.",
+        keySkills: [
+          "Advanced State Management",
+          "Performance Optimization",
+          "Testing (Jest/RTL)",
+        ],
       },
     ],
   },
