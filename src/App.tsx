@@ -7,6 +7,7 @@ import AboutInstructor from "./components/AboutInstructor";
 import Footer from "./components/Footer";
 import CourseFinder from "./pages/CourseFinder";
 import CourseDetails from "./pages/CourseDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 const MainPageLayout = () => (
   <>
@@ -20,6 +21,7 @@ const MainPageLayout = () => (
 function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0F] text-white">
+      <ScrollToTop />
       <Header />
       <main>
         <Routes>
